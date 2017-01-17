@@ -3,11 +3,11 @@ import makeChange from '../src/makeChange'
 
 describe('makeChange()', function(){
 
-  it('should be a function', function(){
+  it('should be a function', () => {
     expect(makeChange).to.be.a('function')
   })
 
-  it('returns an object with all coin types (quarters, dimes, nickels, and pennies)', function(){
+  it('returns an object with all coin types (quarters, dimes, nickels, and pennies)', () => {
     const change = makeChange({price: 100, amountGiven: 100})
     expect(change).to.be.an('object')
     expect(change).to.have.keys('quarters', 'dimes', 'nickels', 'pennies')
@@ -19,7 +19,7 @@ describe('makeChange()', function(){
     })
   })
 
-  it('returns correct change', function(){
+  it('returns correct change', () => {
     expect(makeChange({price: 100, amountGiven: 141})).to.deep.equal({
       quarters: 1,
       dimes: 1,
@@ -28,7 +28,7 @@ describe('makeChange()', function(){
     })
   })
 
-  it('minimizes the number of coins given by using the most high-value coins', function(){
+  it('minimizes the number of coins given by using the most high-value coins', () => {
     expect(makeChange({price: 100, amountGiven: 168})).to.deep.equal({
       quarters: 2,
       dimes: 1,
