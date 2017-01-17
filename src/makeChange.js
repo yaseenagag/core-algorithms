@@ -1,4 +1,4 @@
-export default function makeChange({price, amountGiven}) {
+const makeChange = ({price, amountGiven}) => {
   let change = { quarters: 0, dimes: 0, nickels: 0, pennies: 0 },
       remainder = amountGiven - price
 
@@ -28,3 +28,5 @@ export default function makeChange({price, amountGiven}) {
 
   return change
 }
+
+export default makeChange

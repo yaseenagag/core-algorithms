@@ -12,5 +12,8 @@
   },
   "scripts": {
     "test": "mocha --compilers js:babel-register"
+  },
+  "dependencies": {
+    "babel-core": "^6.21.0"
   }
 }
