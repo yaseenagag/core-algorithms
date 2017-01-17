@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import factorial from '../src/factorial'
 
-describe('factorial( 100 )', () => {
+describe('factorial()', () => {
 
   it('should be a function', () => {
     expect(factorial).to.be.a('function')
