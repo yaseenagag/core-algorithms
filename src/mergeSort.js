@@ -4,7 +4,7 @@ const mergeSort = array => {
   }
 
   const center = Math.floor( array.length / 2 ),
-        leftArray = array.slice( 0 , center ),
+        leftArray = array.slice( 0, center ),
         rightArray = array.slice( center )
 
   return merge( mergeSort(leftArray), mergeSort(rightArray) )

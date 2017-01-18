@@ -18,14 +18,14 @@ describe('mergeSort() and merge()', () => {
         .to.deep.equal( [1, 2, 3, 5, 6, 7, 8, 9] )
     })
 
-    it('should add two sorted arrays together in ascending order', () => {
+    it('should concatenate two sorted arrays in ascending order', () => {
       expect(merge( [1, 3, 5, 10, 11, 12, 13], [2, 6, 7, 8, 9, ] ))
         .to.deep.equal( [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13] )
     })
 
   })
 
-  context('merge()', () => {
+  context('mergeSort()', () => {
 
     it('should be a function', () => {
       expect(mergeSort).to.be.a('function')
