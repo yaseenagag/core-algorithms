@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import factorial from '../src/factorial'
+import { factorial, recursiveFactorial } from '../src/factorial'
 
 describe('factorial()', () => {
 
@@ -14,4 +14,10 @@ describe('factorial()', () => {
   it('returns the factorial of the input', () => {
     expect(factorial( 3 )).to.equal(6)
   })
+
+  it('returns the factorial of the input using recursion', () => {
+    expect(factorial( 4 )).to.equal(24)
+  })
+
+
 })

@@ -12,7 +12,3 @@ const setIntersection = ( arrayOne, arrayTwo ) => {
 }
 
 export default setIntersection
-
-for ( let index = 0; index < array.length; index++ ) {
-  
- }

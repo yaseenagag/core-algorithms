@@ -1,16 +1,19 @@
 const fizzBuzz = number => {
-  let result = []
+  let result = [],
+    index,
+    stringyString
 
-  for (let index = 1; index <= number; index++) {
-    if ( index % 3 === 0 && index % 5 === 0 ) {
-      result.push( 'FizzBuzz' )
-    } else if ( index % 3 === 0) {
-      result.push( 'Fizz' )
-    } else if ( index % 5 === 0 ) {
-      result.push( 'Buzz' )
-    } else {
-      result.push( index )
+  for (index = 1; index <= number; index++) {
+    stringyString = ''
+
+    if ( index % 3 === 0) {
+      stringyString += 'Fizz'
     }
+    if ( index % 5 === 0 ) {
+      stringyString += 'Buzz'
+    }
+    
+    stringyString.length ? result.push(stringyString) : result.push(index)
   }
 
   return result

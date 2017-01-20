@@ -1,32 +1,52 @@
-const makeChange = ({price, amountGiven}) => {
-  let change = { quarters: 0, dimes: 0, nickels: 0, pennies: 0 },
-      remainder = amountGiven - price
-
-  const findChangeAmount = ( denomination, amount ) => {
-    let numberOfDenomination = Math.floor( remainder / amount )
-    change[denomination] = numberOfDenomination
-    remainder = remainder - ( numberOfDenomination * amount )
+const makeChange = ({ price, amountGiven, callback }) => {
+  let changeTracker = {
+    change: { quarters: 0, dimes: 0, nickels: 0, pennies: 0 },
+    remainder: amountGiven - price
   }
 
-  while ( remainder > 0 ) {
+  while ( changeTracker.remainder > 0 ) {
     switch ( true ) {
-      case ( remainder >= 25 ):
-        findChangeAmount( 'quarters', 25 )
+      case ( changeTracker.remainder >= 25 ):
+        callback.call( changeTracker, 'quarters' )
         break
-      case ( remainder >= 10 ):
-        findChangeAmount( 'dimes', 10 )
+      case ( changeTracker.remainder >= 10 ):
+        callback.call( changeTracker, 'dimes' )
         break
-      case ( remainder >= 5 ):
-        findChangeAmount( 'nickels', 5 )
+      case ( changeTracker.remainder >= 5 ):
+        callback.call( changeTracker, 'nickels' )
         break
-      case ( remainder >= 1 ):
-        findChangeAmount( 'pennies', 1 )
+      case ( changeTracker.remainder >= 1 ):
+        callback.call( changeTracker, 'pennies' )
         break
       default:
     }
   }
 
-  return change
+  return changeTracker.change
 }
 
-export default makeChange
+function findChangeAmount ( denomination ) {
+  let amount
+
+  switch ( denomination ) {
+    case ('quarters'):
+      amount = 25
+      break
+    case ('dimes'):
+      amount = 10
+      break
+    case ('nickels'):
+      amount = 5
+      break
+    case ('pennies'):
+      amount = 1
+      break
+    default:
+  }
+
+  let numberOfDenomination = Math.floor( this.remainder / amount )
+  this.change[denomination] = numberOfDenomination
+  this.remainder = this.remainder - ( numberOfDenomination * amount )
+}
+
+export { makeChange, findChangeAmount }
