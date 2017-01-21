@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import isConnected from '../src/isConnected'
 
-describe.only('isConnected()', () => {
+describe('isConnected()', () => {
 
   it('should be a function', () => {
     expect(isConnected).to.be.a('function')
